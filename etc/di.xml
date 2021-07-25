@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="rmsundar_rabbitmqpriority_priority_message" xsi:type="object">Rmsundar\RabbitMqPriority\Console\Command\PriorityMessage</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Rmsundar\RabbitMqPriority\Console\Command\PriorityMessage">
+        <arguments>
+            <argument name="publisher" xsi:type="object">Rmsundar\RabbitMqPriority\Framework\PublisherWithMessageProperties</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,21 @@
+{
+  "name": "rmsundar/rabbit-mq-priority",
+  "version": "1.0.0",
+  "description": "Sample module for rabbitmq priority queue",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "103.0.*",
+    "magento/framework-message-queue": "~100.4.2"
+  },
+  "license": [
+    "Open Software License (OSL)"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Rmsundar\\RabbitMqPriority\\": ""
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+    <exchange name="magento" type="topic" connection="amqp">
+        <binding id="sample.priority" topic="sample.priority.topic" destinationType="queue" destination="sample.priority">
+            <arguments>
+                <argument name="x-max-priority" xsi:type="number">10</argument>
+            </arguments>
+        </binding>
+        <binding id="sample.priority.single.consumer" topic="sample.priority.topic" destinationType="queue" destination="sample.priority.single.consumer">
+            <arguments>
+                <argument name="x-message-ttl" xsi:type="number">10000</argument>
+                <argument name="x-dead-letter-routing-key" xsi:type="string">dead.queue</argument>
+                <argument name="x-dead-letter-exchange" xsi:type="string">magento</argument>
+            </arguments>
+        </binding>
+        <binding id="dead.rounting.queue" topic="dead.queue" destinationType="queue" destination="dead.queue"/>
+    </exchange>
+</config>
